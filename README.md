@@ -4,6 +4,8 @@ AI-powered Home Price Estimator — Built with Flask, scikit-learn & Deployable 
 Predict home prices instantly using a clean ML workflow, a Flask API backend, and a lightweight web UI.
 This project demonstrates how to take a real ML model from Jupyter Notebook → Flask API → Cloud Deployment.
 
+
+
 📘 Project Overview
 
 This project walks through a complete end-to-end Data Science + Deployment pipeline:
@@ -30,6 +32,8 @@ A simple UI built with:
 HTML + CSS + JavaScript
 Users can input property details and get predictions in real time via API.
 
+
+
 🛠️ Technologies Used
 ML & Programming-
 Python
@@ -49,6 +53,8 @@ Cloud-
 
 AWS EC2 for hosting
 
+
+
 🌟 Key Features
 
 ✨ Machine Learning model trained on real data
@@ -56,6 +62,8 @@ AWS EC2 for hosting
 ✨ Frontend UI for user inputs
 ✨ Fast JSON-based communication
 ✨ Deployable on any cloud — EC2, Render, Railway, etc.
+
+
 
 🚀 Ultra-Concise Steps to Deploy ML Model on AWS EC2
 1️⃣ Launch EC2 Instance
