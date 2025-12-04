@@ -1,4 +1,4 @@
-------------------Real Estate Price Prediction Model------------------------
+REAL ESTATE PRICE PREDICTION MODEL
 
 A Machine Learning model built with Flask & scikit-learn
 
@@ -13,7 +13,7 @@ cleaning, outlier removal, feature engineering, dimensionality reduction, hyperp
 Flask Backend: A Python Flask server loads the trained model and exposes HTTP endpoints to return price predictions based on user inputs.
 Interactive Website: A frontend built with HTML, CSS, and JavaScript allows users to enter square footage, location, bedrooms, and bathrooms. The UI communicates with the Flask API to display predicted prices.
 
-------Technologies Used----------
+TECHNOLOGIES USED
 
 Python
 NumPy & Pandas (data cleaning)
@@ -24,16 +24,12 @@ Flask (API server)
 HTML/CSS/JavaScript (frontend UI)
 cloud deployement(aws)
 
----------Features--------------
+FEATURES
 
 Trained ML model using scikit-learn
-
 REST API endpoint for predictions
-
 Lightweight Flask backend
-
 Easy to deploy on EC2
-
 JSON-based request & response
 
 ------Concise Steps to Deploy ML Model on AWS EC2------------
