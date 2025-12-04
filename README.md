@@ -1,158 +1,108 @@
 🏡 Real Estate Price Prediction Model
 
-A Machine Learning model built with Flask & scikit-learn
-
-This project predicts real estate/home prices based on key features such as square footage, location, number of bedrooms, and bathrooms.
-It includes an end-to-end Machine Learning workflow, a Flask backend API, and can be deployed easily on AWS EC2.
+AI-powered Home Price Estimator — Built with Flask, scikit-learn & Deployable on AWS EC2
+Predict home prices instantly using a clean ML workflow, a Flask API backend, and a lightweight web UI.
+This project demonstrates how to take a real ML model from Jupyter Notebook → Flask API → Cloud Deployment.
 
 📘 Project Overview
 
-This project demonstrates a complete Data Science pipeline, starting from data preprocessing to deployment:
+This project walks through a complete end-to-end Data Science + Deployment pipeline:
+1️⃣ Model Development (Machine Learning)
+Trained using the Bengaluru House Prices dataset (Kaggle) with Linear Regression.
+Includes:
+✔️ Data cleaning & preprocessing
+✔️ Outlier detection
+✔️ Feature engineering
+✔️ Dimensionality reduction
+✔️ Hyperparameter tuning (GridSearchCV)
+✔️ K-Fold cross-validation
+✔️ Model saving via pickle
 
-1. Model Development
-
-Using the Bengaluru home prices dataset (Kaggle), the model is built using scikit-learn’s Linear Regression.
-The workflow includes:
-
-Data loading & cleaning
-
-Outlier detection & removal
-
-Feature engineering
-
-Dimensionality reduction
-
-Hyperparameter tuning (GridSearchCV)
-
-K-Fold cross-validation
-
-Model saving & pickle serialization
-
-2. Flask Backend
-
-A Python Flask server:
-
-Loads the trained model
-
+2️⃣ Flask Backend API
+A lightweight Python Flask server that:
+Loads trained ML model
 Exposes REST endpoints
+Accepts JSON inputs
+Returns predicted home price
 
-Takes JSON input from UI or API
-
-Returns predicted price
-
-3. Frontend Website
-
-A simple interface built using:
-
-HTML
-
-CSS
-
-JavaScript
-
-This UI allows users to enter property details and fetch predicted price from the Flask API.
+3️⃣ Frontend Website
+A simple UI built with:
+HTML + CSS + JavaScript
+Users can input property details and get predictions in real time via API.
 
 🛠️ Technologies Used
-Programming & ML
-
+ML & Programming-
 Python
+NumPy & Pandas
+Matplotlib
+scikit-learn
 
-NumPy & Pandas (data cleaning)
+Backend-
+Flask (REST API)
 
-Matplotlib (visualization)
-
-scikit-learn (model building)
-
-Development Tools
-
-Jupyter Notebook
-
-VS Code / PyCharm
-
-Backend
-
-Python Flask (REST API server)
-
-Frontend
-
+Frontend-
 HTML
-
 CSS
-
 JavaScript
 
-Cloud Deployment
+Cloud-
 
-AWS EC2
+AWS EC2 for hosting
 
-⭐ Features
+🌟 Key Features
 
-ML model trained with scikit-learn
+✨ Machine Learning model trained on real data
+✨ Flask REST API for predictions
+✨ Frontend UI for user inputs
+✨ Fast JSON-based communication
+✨ Deployable on any cloud — EC2, Render, Railway, etc.
 
-REST API endpoint for predictions
-
-Lightweight Flask backend
-
-Frontend UI for user interaction
-
-JSON-based request/response
-
-Easy cloud deployment (AWS EC2)
-
-🚀 Concise Steps to Deploy ML Model on AWS EC2
-1. Launch EC2 Instance
+🚀 Ultra-Concise Steps to Deploy ML Model on AWS EC2
+1️⃣ Launch EC2 Instance
 
 Ubuntu 22.04 LTS
 
-Instance type: t2.micro
+t2.micro (Free Tier)
 
-Add inbound security rule:
-
+Add security rule:
 Custom TCP → Port 5000 → 0.0.0.0/0
 
-2. SSH Into EC2
+2️⃣ SSH Into EC2
 chmod 400 mykey.pem
 ssh -i "mykey.pem" ubuntu@<EC2-PUBLIC-IP>
 
-3. Install Python Dependencies
+3️⃣ Install Python & Tools
 sudo apt update
 sudo apt install python3-pip python3-venv -y
 
-4. Upload Project to EC2
+4️⃣ Upload Your Project to EC2
 
-From your local machine:
+From your local terminal:
 
-scp -i "mykey.pem" -r RealEstateModel/ ubuntu@<EC2-PUBLIC-IP>:/home/ubuntu/
+scp -i "mykey.pem" -r RealEstateModel/ ubuntu@<ECIP>:/home/ubuntu/
 
-5. Create Virtual Environment
+5️⃣ Create Virtual Environment & Install Dependencies
 cd RealEstateModel
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-6. Update Flask to Listen Publicly
+6️⃣ Update Flask to Run Publicly
 
-In server.py, ensure:
+In server.py:
 
 app.run(host='0.0.0.0', port=5000)
 
-7. Start the Server
+7️⃣ Run Flask Server in Background
 nohup python3 server.py > server.log 2>&1 &
 
 
-Check if running:
+Check status:
 
 sudo lsof -i :5000
 
-8. Test the API
+8️⃣ Test API
 
-Open in browser or Postman:
+Open:
 
 http://<EC2-PUBLIC-IP>:5000
-
-
-Test prediction:
-
-curl -X POST http://<EC2-PUBLIC-IP>:5000/predict_home_price \
--H "Content-Type: application/json" \
--d '{"total_sqft":1000, "location":"Whitefield", "bhk":3, "bath":2}'
